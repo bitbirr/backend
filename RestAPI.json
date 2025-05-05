@@ -1,120 +1,185 @@
 {
-    "info": {
-      "_postman_id": "abcd1234-abcd-5678-efgh-ijklmnopqrst",
-      "name": "BirBitt API Collection",
-      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  "info": {
+    "_postman_id": "abcd1234-abcd-5678-efgh-ijklmnopqrst",
+    "name": "BirBitt API Collection with Authentication",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "Register User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"username\":\"testuser\",\"password\":\"password123\",\"email\":\"testuser@example.com\"}"
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/users/register",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "users",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get User by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/users/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "users",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
     },
-    "item": [
-      {
-        "name": "User",
-        "item": [
-          {
-            "name": "Register User",
-            "request": {
-              "method": "POST",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
+    {
+      "name": "Transaction",
+      "item": [
+        {
+          "name": "Create Transaction",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"userId\":1,\"cryptoCurrency\":\"Bitcoin\",\"amount\":0.01,\"type\":\"buy\"}"
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/transactions",
+              "protocol": "http",
+              "host": [
+                "localhost"
               ],
-              "body": {
-                "mode": "raw",
-                "raw": "{\"username\":\"testuser\",\"password\":\"password123\",\"email\":\"testuser@example.com\"}"
-              },
-              "url": {
-                "raw": "http://localhost:5000/api/users/register",
-                "protocol": "http",
-                "host": [
-                  "localhost"
-                ],
-                "port": "5000",
-                "path": [
-                  "api",
-                  "users",
-                  "register"
-                ]
-              }
-            },
-            "response": []
+              "port": "5000",
+              "path": [
+                "api",
+                "transactions"
+              ]
+            }
           },
-          {
-            "name": "Get User by ID",
-            "request": {
-              "method": "GET",
-              "header": [],
-              "url": {
-                "raw": "http://localhost:5000/api/users/1",
-                "protocol": "http",
-                "host": [
-                  "localhost"
-                ],
-                "port": "5000",
-                "path": [
-                  "api",
-                  "users",
-                  "1"
-                ]
-              }
-            },
-            "response": []
-          }
-        ]
-      },
-      {
-        "name": "Transaction",
-        "item": [
-          {
-            "name": "Create Transaction",
-            "request": {
-              "method": "POST",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
+          "response": []
+        },
+        {
+          "name": "Get Transactions by User ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/transactions/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
               ],
-              "body": {
-                "mode": "raw",
-                "raw": "{\"userId\":1,\"cryptoCurrency\":\"Bitcoin\",\"amount\":0.01,\"type\":\"buy\"}"
-              },
-              "url": {
-                "raw": "http://localhost:5000/api/transactions",
-                "protocol": "http",
-                "host": [
-                  "localhost"
-                ],
-                "port": "5000",
-                "path": [
-                  "api",
-                  "transactions"
-                ]
-              }
-            },
-            "response": []
+              "port": "5000",
+              "path": [
+                "api",
+                "transactions",
+                "1"
+              ]
+            }
           },
-          {
-            "name": "Get Transactions by User ID",
-            "request": {
-              "method": "GET",
-              "header": [],
-              "url": {
-                "raw": "http://localhost:5000/api/transactions/1",
-                "protocol": "http",
-                "host": [
-                  "localhost"
-                ],
-                "port": "5000",
-                "path": [
-                  "api",
-                  "transactions",
-                  "1"
-                ]
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Login User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
               }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"email\":\"testuser@example.com\",\"password\":\"password123\"}"
             },
-            "response": []
-          }
-        ]
-      }
-    ]
-  }
+            "url": {
+              "raw": "http://localhost:5000/api/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Verify OTP",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"otp\":123456}"
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/auth/verify-otp",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "auth",
+                "verify-otp"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
