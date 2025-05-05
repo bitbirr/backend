@@ -1,0 +1,120 @@
+{
+    "info": {
+      "_postman_id": "abcd1234-abcd-5678-efgh-ijklmnopqrst",
+      "name": "BirBitt API Collection",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "User",
+        "item": [
+          {
+            "name": "Register User",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\"username\":\"testuser\",\"password\":\"password123\",\"email\":\"testuser@example.com\"}"
+              },
+              "url": {
+                "raw": "http://localhost:5000/api/users/register",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "5000",
+                "path": [
+                  "api",
+                  "users",
+                  "register"
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Get User by ID",
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:5000/api/users/1",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "5000",
+                "path": [
+                  "api",
+                  "users",
+                  "1"
+                ]
+              }
+            },
+            "response": []
+          }
+        ]
+      },
+      {
+        "name": "Transaction",
+        "item": [
+          {
+            "name": "Create Transaction",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\"userId\":1,\"cryptoCurrency\":\"Bitcoin\",\"amount\":0.01,\"type\":\"buy\"}"
+              },
+              "url": {
+                "raw": "http://localhost:5000/api/transactions",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "5000",
+                "path": [
+                  "api",
+                  "transactions"
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Get Transactions by User ID",
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:5000/api/transactions/1",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "5000",
+                "path": [
+                  "api",
+                  "transactions",
+                  "1"
+                ]
+              }
+            },
+            "response": []
+          }
+        ]
+      }
+    ]
+  }
